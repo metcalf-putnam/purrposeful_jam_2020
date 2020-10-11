@@ -5,7 +5,8 @@ var direction := Vector2(0,0)	# The direction in which the chain was shot
 var tip := Vector2(0,0)			
 var buffer_length := 15.0
 
-const SPEED = 10	# The speed with which the chain moves
+const SPEED = 14	# The speed with which the chain moves
+const RETRACTION_ADJUSTMENT = 0.75
 
 enum State{FLYING, HOOKED, INACTIVE, RETRACTING}
 var state = State.INACTIVE
@@ -18,15 +19,19 @@ signal kitten_detained
 
 func _ready():
 	viewport = get_viewport_rect().size
+	EventHub.connect("kitten_capture_complete", self, "_on_kitten_capture_complete")
+
 
 # shoot() shoots the chain in a given direction
 func shoot(dir: Vector2) -> void:
 	if state != State.INACTIVE:
 		return	
+	$Throw.play()
 	$Tip/Loop.visible = true
 	state = State.FLYING				
 	tip = self.global_position
 	direction = dir.normalized()
+
 
 # release() the chain
 func release() -> void:
@@ -51,9 +56,10 @@ func _process(_delta: float) -> void:
 	rope.position = tip_loc
 	rope.region_rect.size.y = tip_loc.length()	
 	if tip_loc.length() < buffer_length and state != State.FLYING:
-		if state == State.HOOKED:
+		if lassoed_kitten:
 			emit_signal("kitten_detained", lassoed_kitten)
 			lassoed_kitten = null
+			$Tip.free_to_grab = true
 		release()
 
 
@@ -63,10 +69,8 @@ func _physics_process(_delta: float) -> void:
 		State.FLYING:
 		# `if move_and_collide()` always moves, but returns true if we did collide
 			$Tip.move_and_collide(direction * SPEED)
-		State.HOOKED:
-			$Tip.move_and_collide(-direction * SPEED)
 		State.RETRACTING:
-			$Tip.move_and_collide(-direction * SPEED)
+			$Tip.move_and_collide(-direction * SPEED * RETRACTION_ADJUSTMENT)
 			
 	tip = $Tip.global_position	# set `tip` as starting position for next frame
 
@@ -75,3 +79,7 @@ func _on_Tip_caught_kitten(kitten):
 	lassoed_kitten = kitten
 	state = State.HOOKED
 	$Tip/Loop.visible = false
+
+
+func _on_kitten_capture_complete():
+	state = State.RETRACTING

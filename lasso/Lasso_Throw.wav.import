@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Lasso_Throw.wav-57903e2ab41d683ddaa6f3d7d404b788.sample"
+
+[deps]
+
+source_file="res://lasso/Lasso_Throw.wav"
+dest_files=[ "res://.import/Lasso_Throw.wav-57903e2ab41d683ddaa6f3d7d404b788.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

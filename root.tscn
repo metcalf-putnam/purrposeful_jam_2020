@@ -15,24 +15,24 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 98.7784, 102.782 )
+position = Vector2( 515.248, 573.98 )
 
 [node name="Kitten" parent="." instance=ExtResource( 2 )]
-position = Vector2( 668.174, 276.179 )
+position = Vector2( 562.722, 15.8852 )
 scale = Vector2( 2, 2 )
 
 [node name="Kitten2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 828.536, 51.6725 )
+position = Vector2( 476.138, 217.193 )
 scale = Vector2( 2, 2 )
 
 [node name="Kitten3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 306.469, 511.376 )
+position = Vector2( 19.4785, 216.376 )
 scale = Vector2( 2, 2 )
 
 [node name="Kitten4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 361.705, 169.271 )
+position = Vector2( 254.918, 69.158 )
 scale = Vector2( 2, 2 )
 
 [node name="Kitten5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 855.263, 506.031 )
+position = Vector2( 829.901, 117.593 )
 scale = Vector2( 2, 2 )
