@@ -7,6 +7,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			$Lasso.shoot(event.position - global_position)
 
 
-func _on_Lasso_kitten_detained(_kitten):
+func _on_Lasso_kitten_detained(kitten):
 	EventHub.emit_signal("increment_kittens")
-	_kitten.queue_free()
+	kitten.be_detained()

@@ -36,3 +36,11 @@ scale = Vector2( 2, 2 )
 [node name="Kitten5" parent="." instance=ExtResource( 2 )]
 position = Vector2( 829.901, 117.593 )
 scale = Vector2( 2, 2 )
+
+[node name="Kitten6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 737.797, 488.678 )
+scale = Vector2( 2, 2 )
+
+[node name="Kitten7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 323.997, 465.986 )
+scale = Vector2( 2, 2 )
