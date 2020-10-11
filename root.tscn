@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://kitten/kitten.tscn" type="PackedScene" id=2]
+
+[node name="Root" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color( 0.647059, 0.411765, 0.411765, 1 )
+margin_right = 1025.0
+margin_bottom = 600.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 98.7784, 102.782 )
+
+[node name="Kitten" parent="." instance=ExtResource( 2 )]
+position = Vector2( 668.174, 276.179 )
+scale = Vector2( 2, 2 )
+
+[node name="Kitten2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 828.536, 51.6725 )
+scale = Vector2( 2, 2 )
+
+[node name="Kitten3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 306.469, 511.376 )
+scale = Vector2( 2, 2 )
+
+[node name="Kitten4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 361.705, 169.271 )
+scale = Vector2( 2, 2 )
+
+[node name="Kitten5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 855.263, 506.031 )
+scale = Vector2( 2, 2 )

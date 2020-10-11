@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mews3.wav-b2efc702a009a01ae598270a2f6a0fc7.sample"
+
+[deps]
+
+source_file="res://kitten/sounds/mews3.wav"
+dest_files=[ "res://.import/mews3.wav-b2efc702a009a01ae598270a2f6a0fc7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
