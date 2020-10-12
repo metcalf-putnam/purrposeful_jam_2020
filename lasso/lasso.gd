@@ -30,7 +30,7 @@ func shoot() -> void:
 	if state != State.SPINNING:
 		return	
 	
-	if rotation_degrees < 180:
+	if rotation_degrees < 190 or rotation_degrees > 350:
 		return
 	$Throw.play()
 	$Tip/Loop.visible = true
@@ -67,7 +67,7 @@ func _process(delta: float) -> void:
 				state = State.RETRACTING
 		State.RETRACTING:
 			tip_loc = to_local(tip)
-			if !is_in_bounds() and tip_loc.length() < spinning_offset:
+			if tip_loc.length() < spinning_offset:
 				if lassoed_kitten:
 					emit_signal("kitten_detained", lassoed_kitten)
 					lassoed_kitten = null
