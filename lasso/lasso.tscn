@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://prog_art/rope.png" type="Texture" id=1]
 [ext_resource path="res://prog_art/loop.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://prog_art/circle.png" type="Texture" id=4]
 [ext_resource path="res://lasso/tip.gd" type="Script" id=5]
 [ext_resource path="res://lasso/Lasso_Throw.wav" type="AudioStream" id=6]
+[ext_resource path="res://lasso/Lasso_Throw_short.wav" type="AudioStream" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 62.0081
@@ -25,6 +26,7 @@ region_rect = Rect2( 0, 0, 16, 250 )
 stream = ExtResource( 6 )
 
 [node name="Swing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 
 [node name="Tip" type="KinematicBody2D" parent="." groups=[
 "lasso",

@@ -4,6 +4,8 @@ var caught = false
 var capture_complete = false
 var direction
 var speed = 50
+enum State {WALKING, LISTENING, IDLE}
+var state = State.IDLE
 
 
 func _ready():
@@ -17,7 +19,8 @@ func _on_Kitten_body_entered(body):
 		body.lasso(self)
 
 
-func walk(direction_in : Vector2):
+func walk(direction_in := direction):
+	state = State.WALKING
 	set_process(true)
 	direction = direction_in.normalized()
 	$AnimationPlayer.play("walk")
@@ -66,4 +69,10 @@ func _process(delta):
 	var velocity = direction * speed
 	position += velocity * delta
 
-	
+
+func listen():
+	if caught:
+		return
+	state = State.LISTENING
+	set_process(false)
+	$AnimationPlayer.play("idle")

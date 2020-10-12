@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://bird/bird.tscn" type="PackedScene" id=2]
 [ext_resource path="res://utils/counter.gd" type="Script" id=3]
 [ext_resource path="res://fonts/Piazzolla-SemiBoldItalic-opsz=28.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://kitten_manager/kitten_manager.tscn" type="PackedScene" id=5]
@@ -41,3 +42,6 @@ __meta__ = {
 [node name="KittenManager2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1117.55, 3.77977 )
 right_walking = false
+
+[node name="Bird" parent="." instance=ExtResource( 2 )]
+position = Vector2( 524.576, 506.488 )

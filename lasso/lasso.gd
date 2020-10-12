@@ -75,6 +75,9 @@ func _process(delta: float) -> void:
 		State.SPINNING:
 			rotation += rotation_speed * delta
 			rotation = fmod(rotation, 2 * PI)
+			var angle_buffer = 2
+			if rotation_degrees >= 180 - angle_buffer and rotation_degrees < 180 + angle_buffer:
+				$Swing.play()
 	
 	# Draw the rope connected to the loop
 	self.visible = true

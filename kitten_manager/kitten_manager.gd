@@ -14,7 +14,6 @@ func _on_Timer_timeout():
 
 
 func spawn_kitten():
-	print("spawning!")
 	var kitten = Kitten.instance()
 	$Spawn.add_child(kitten)
 	kitten.position += Vector2(0, rng.randf_range(-random_limit, random_limit))

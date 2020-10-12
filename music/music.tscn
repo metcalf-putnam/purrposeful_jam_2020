@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://music/Kitten Wranglin' [Loop].wav" type="AudioStream" id=1]
+[ext_resource path="res://music/Kitten Wranglin' [Loop].ogg" type="AudioStream" id=1]
 [ext_resource path="res://music/music.gd" type="Script" id=2]
 
 [node name="Node" type="Node"]

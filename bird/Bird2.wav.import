@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bird2.wav-0a6dbd348c9525c79cb6176ad14d8ced.sample"
+
+[deps]
+
+source_file="res://bird/Bird2.wav"
+dest_files=[ "res://.import/Bird2.wav-0a6dbd348c9525c79cb6176ad14d8ced.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
