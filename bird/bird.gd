@@ -58,4 +58,5 @@ func _on_SongTimer_timeout():
 func _on_Area2D_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed and can_sing:
+			get_tree().set_input_as_handled()
 			sing()

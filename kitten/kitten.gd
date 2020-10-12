@@ -20,6 +20,8 @@ func _on_Kitten_body_entered(body):
 
 
 func walk(direction_in := direction):
+	if caught:
+		return
 	state = State.WALKING
 	set_process(true)
 	direction = direction_in.normalized()
