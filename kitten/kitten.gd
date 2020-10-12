@@ -1,6 +1,13 @@
 extends Area2D
+var entered = false
 var caught = false
 var capture_complete = false
+var direction
+var speed = 50
+
+
+func _ready():
+	set_process(false)
 
 
 func _on_Kitten_body_entered(body):
@@ -8,6 +15,12 @@ func _on_Kitten_body_entered(body):
 		return
 	if body.is_in_group("lasso"):
 		body.lasso(self)
+
+
+func walk(direction_in : Vector2):
+	set_process(true)
+	direction = direction_in.normalized()
+	$AnimationPlayer.play("walk")
 
 
 func get_lassoed():
@@ -18,7 +31,7 @@ func get_lassoed():
 
 
 func _on_VisibilityNotifier2D_screen_exited():
-	if caught:
+	if caught or !entered:
 		return
 	queue_free()
 
@@ -40,3 +53,17 @@ func be_detained():
 	if $Mew.is_playing():
 		return
 	queue_free()
+
+
+func _on_VisibilityNotifier2D_screen_entered():
+	entered = true
+
+
+func _process(delta):
+	if caught:
+		set_process(false)
+		return
+	var velocity = direction * speed
+	position += velocity * delta
+
+	
