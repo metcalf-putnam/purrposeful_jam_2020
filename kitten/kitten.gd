@@ -7,12 +7,11 @@ func _on_Kitten_body_entered(body):
 	if caught:
 		return
 	if body.is_in_group("lasso"):
-		caught = true
-		get_lassoed()
 		body.lasso(self)
 
 
 func get_lassoed():
+	caught = true
 	$Sprite.texture = load("res://prog_art/lassoed_kitten.png")
 	$Mew.play()
 	$AnimationPlayer.play("caught")

@@ -21,6 +21,11 @@ offset = Vector2( -7.951, 5 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 16, 250 )
 
+[node name="Throw" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Swing" type="AudioStreamPlayer" parent="."]
+
 [node name="Tip" type="KinematicBody2D" parent="." groups=[
 "lasso",
 ]]
@@ -32,7 +37,7 @@ script = ExtResource( 5 )
 position = Vector2( 0, 0.5 )
 rotation = 3.14159
 texture = ExtResource( 2 )
-offset = Vector2( 0, 25 )
+offset = Vector2( 0, 22 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
 position = Vector2( 1.49333, -33.433 )
@@ -42,9 +47,4 @@ shape = SubResource( 1 )
 visible = false
 scale = Vector2( 1.4, 1.4 )
 texture = ExtResource( 4 )
-
-[node name="Throw" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
-
-[node name="Swing" type="AudioStreamPlayer" parent="."]
-[connection signal="caught_kitten" from="Tip" to="." method="_on_Tip_caught_kitten"]
+[connection signal="kitten_detected" from="Tip" to="." method="_on_Tip_kitten_detected"]
