@@ -30,7 +30,7 @@ func shoot() -> void:
 	if state != State.SPINNING:
 		return	
 	
-	if rotation_degrees < 190 or rotation_degrees > 350:
+	if rotation_degrees < 182 or rotation_degrees > 358:
 		return
 	$Throw.play()
 	$Tip/Loop.visible = true

@@ -2,3 +2,4 @@ extends Node
 
 signal increment_kittens
 signal kitten_capture_complete
+signal restart_level

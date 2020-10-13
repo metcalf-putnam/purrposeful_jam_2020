@@ -30,7 +30,6 @@ func walk(direction_in := direction):
 
 func get_lassoed():
 	caught = true
-	$Sprite.texture = load("res://prog_art/lassoed_kitten.png")
 	$Mew.play()
 	$AnimationPlayer.play("caught")
 

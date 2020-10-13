@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Defeat.wav-82a0a4491ff3cab13e13d2b7a74b7a4b.sample"
+
+[deps]
+
+source_file="res://utils/Defeat.wav"
+dest_files=[ "res://.import/Defeat.wav-82a0a4491ff3cab13e13d2b7a74b7a4b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

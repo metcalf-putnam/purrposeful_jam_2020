@@ -2,6 +2,7 @@ extends Label
 
 const label_prefix = "Kittens: "
 var kitten_count :=0 
+export var goal := 20
 
 
 func _ready():
@@ -16,4 +17,6 @@ func update_label():
 func _on_increment_kittens():
 	kitten_count += 1
 	update_label()
+
+
 

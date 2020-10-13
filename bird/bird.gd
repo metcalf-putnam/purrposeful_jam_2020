@@ -4,6 +4,9 @@ enum State {SINGING, IDLE, READY}
 var state = State.IDLE
 var rng = RandomNumberGenerator.new()
 var can_sing = false
+var selected_modulate = Color(0.4, 0.68, 0.19)
+var normal_modulate = Color(1, 1, 1)
+var mouse_in_range = false
 
 
 func _ready():
@@ -23,8 +26,9 @@ func load_songs():
 
 
 func sing():
+	can_sing = false
 	state = State.SINGING
-	$AnimationPlayer.play("sing")
+	update_sprite()
 	$CooldownTimer.start()
 	$SongTimer.start()
 	play_song_file()
@@ -42,13 +46,14 @@ func _on_AudioStreamPlayer_finished():
 		play_song_file()
 	else:
 		state = State.IDLE
-		$AnimationPlayer.play("idle")
+		update_sprite()
 		get_tree().call_group("kittens", "walk")
 
 
 func _on_CooldownTimer_timeout():
 	can_sing = true
-	$AnimationPlayer.play("ready")
+	state = State.READY
+	update_sprite()
 
 
 func _on_SongTimer_timeout():
@@ -60,3 +65,34 @@ func _on_Area2D_input_event(viewport, event, shape_idx):
 		if event.pressed and can_sing:
 			get_tree().set_input_as_handled()
 			sing()
+
+
+func _on_Area2D_mouse_entered():
+	mouse_in_range = true
+	update_sprite()
+
+
+func _on_Area2D_mouse_exited():
+	mouse_in_range = false
+	update_sprite()
+		
+
+func update_sprite():
+	match state:
+		State.IDLE:
+			$AnimationPlayer.play("idle")
+			modulate = normal_modulate
+			$Area2D/Sprite.visible = false
+		State.READY:
+			if mouse_in_range:
+				modulate = selected_modulate
+				$Area2D/Sprite.visible = false
+			else:
+				modulate = normal_modulate
+				$Area2D/Sprite.visible = true
+			$AnimationPlayer.play("ready")
+		State.SINGING:
+			$AnimationPlayer.play("sing")
+			modulate = normal_modulate
+			$Area2D/Sprite.visible = false
+	
