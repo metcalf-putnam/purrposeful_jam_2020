@@ -65,6 +65,7 @@ func _process(delta: float) -> void:
 		State.FLYING:
 			if !is_in_bounds():
 				state = State.RETRACTING
+				$Miss.play()
 		State.RETRACTING:
 			tip_loc = to_local(tip)
 			if tip_loc.length() < spinning_offset:
@@ -107,6 +108,7 @@ func _physics_process(_delta: float) -> void:
 
 func _on_kitten_capture_complete():
 	state = State.RETRACTING
+	$Pull.play()
 
 
 func _on_Tip_kitten_detected(kitten):

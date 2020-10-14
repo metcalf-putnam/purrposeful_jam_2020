@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Lasso_ Pull.wav-0324e315b9c7a4dbbd2c8c4a5f315180.sample"
+
+[deps]
+
+source_file="res://lasso/Lasso_ Pull.wav"
+dest_files=[ "res://.import/Lasso_ Pull.wav-0324e315b9c7a4dbbd2c8c4a5f315180.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
