@@ -4,6 +4,7 @@ export (PackedScene) var EndScreen
 
 
 func _ready():
+	Music.bird_song = false
 	EventHub.connect("restart_level", self, "_on_restart_level")
 	get_tree().paused = false
 	Music.start()
