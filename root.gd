@@ -12,6 +12,7 @@ func _ready():
 func _on_TimeMeter_time_out():
 	get_tree().paused = true
 	Music.stop()
+	$AnimationPlayer.play("fade_to_black")
 	var end_screen = EndScreen.instance()
 	end_screen.init($CanvasLayer/Count.kitten_count, $CanvasLayer/Count.goal)
 	add_child(end_screen)

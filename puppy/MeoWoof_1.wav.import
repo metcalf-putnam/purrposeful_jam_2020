@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MeoWoof_1.wav-40e683ddb580216937d42c2699738e50.sample"
+
+[deps]
+
+source_file="res://puppy/MeoWoof_1.wav"
+dest_files=[ "res://.import/MeoWoof_1.wav-40e683ddb580216937d42c2699738e50.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

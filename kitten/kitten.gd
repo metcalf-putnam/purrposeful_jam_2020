@@ -6,10 +6,16 @@ var direction
 var speed = 50
 enum State {WALKING, LISTENING, IDLE}
 var state = State.IDLE
+var meows = []
+var rng = RandomNumberGenerator.new()
 
 
 func _ready():
 	set_process(false)
+
+
+func init_meow(meow : AudioStream):
+	$Enter.stream = meow
 
 
 func _on_Kitten_body_entered(body):
@@ -30,7 +36,7 @@ func walk(direction_in := direction):
 
 func get_lassoed():
 	caught = true
-	$Mew.play()
+	$Caught.play()
 	$AnimationPlayer.play("caught")
 
 
@@ -38,6 +44,13 @@ func _on_VisibilityNotifier2D_screen_exited():
 	if caught or !entered:
 		return
 	queue_free()
+
+
+func _on_VisibilityNotifier2D_screen_entered():
+	entered = true
+	$Enter.play()
+	if Music.bird_song:
+		listen()
 
 
 func _on_Mew_finished():
@@ -54,13 +67,9 @@ func be_detained():
 	capture_complete = true
 	# Makes invisible if capture mew still playing
 	visible = false  # TODO: reparent kitten so is bouncing around main character
-	if $Mew.is_playing():
+	if $Caught.is_playing():
 		return
 	queue_free()
-
-
-func _on_VisibilityNotifier2D_screen_entered():
-	entered = true
 
 
 func _process(delta):

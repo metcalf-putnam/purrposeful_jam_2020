@@ -2,7 +2,7 @@
 
 [ext_resource path="res://kitten/kittenspritesheet.png" type="Texture" id=1]
 [ext_resource path="res://kitten/kitten.gd" type="Script" id=2]
-[ext_resource path="res://kitten/sounds/mews4.wav" type="AudioStream" id=3]
+[ext_resource path="res://kitten/Cat Caught1.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 27.3061
@@ -131,12 +131,12 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.257274, 0.246363 )
+scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 1 )
 offset = Vector2( 0, 1.45475 )
 vframes = 2
 hframes = 5
-frame = 4
+frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
@@ -144,12 +144,17 @@ anims/caught = SubResource( 2 )
 anims/idle = SubResource( 3 )
 anims/walk = SubResource( 4 )
 
-[node name="Mew" type="AudioStreamPlayer2D" parent="."]
+[node name="Caught" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 1.50217, -1.46518 )
 stream = ExtResource( 3 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
+[node name="Enter" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( -3.53467, -15.3271 )
+volume_db = -10.0
 [connection signal="body_entered" from="." to="." method="_on_Kitten_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
-[connection signal="finished" from="Mew" to="." method="_on_Mew_finished"]
+[connection signal="finished" from="Caught" to="." method="_on_Mew_finished"]
 [connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -8,5 +8,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _on_Lasso_kitten_detained(kitten):
-	EventHub.emit_signal("increment_kittens")
+	# TODO: check if kitten is actually a puppy
+	if kitten.is_in_group("puppies"):
+		_on_puppy_caught()
+	else:
+		EventHub.emit_signal("increment_kittens")
 	kitten.be_detained()
+
+
+func _on_puppy_caught():
+	pass

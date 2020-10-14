@@ -10,33 +10,34 @@
 [ext_resource path="res://lasso/Lasso_ Miss.wav" type="AudioStream" id=8]
 [ext_resource path="res://lasso/Lasso_ Pull.wav" type="AudioStream" id=9]
 
-[sub_resource type="AtlasTexture" id=2]
+[sub_resource type="AtlasTexture" id=1]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 0, 1500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=3]
+[sub_resource type="AtlasTexture" id=2]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 500, 1500, 500, 500 )
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=3]
 flags = 4
 atlas = ExtResource( 2 )
 region = Rect2( 1000, 1500, 500, 500 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=5]
 radius = 53.9386
 
 [node name="Lasso" type="Node2D"]
+z_index = 1
 script = ExtResource( 3 )
 
 [node name="Rope" type="Sprite" parent="."]
@@ -66,13 +67,14 @@ script = ExtResource( 5 )
 position = Vector2( 0, 0.5 )
 rotation = 3.14159
 scale = Vector2( 0.25, 0.25 )
-frames = SubResource( 5 )
+frames = SubResource( 4 )
+frame = 2
 playing = true
 offset = Vector2( 0, 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
 position = Vector2( -4.17629, -4.45481 )
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Tip/CollisionShape2D"]
 visible = false

@@ -11,53 +11,30 @@ var mouse_in_range = false
 
 func _ready():
 	rng.randomize()
-	load_songs()
 	$CooldownTimer.start()
-
-
-func load_songs():
-	var prefix := "res://bird/Bird"
-	var suffix := ".wav"
-	
-	for i in range(1, 5):
-		var song_path = prefix + str(i) + suffix
-		var song = load(song_path)
-		songs.append(song)
 
 
 func sing():
 	can_sing = false
 	state = State.SINGING
 	update_sprite()
-	$CooldownTimer.start()
-	$SongTimer.start()
-	play_song_file()
-
-
-func play_song_file():
-	var song = songs[rng.randi_range(0, len(songs) - 1)]
-	$AudioStreamPlayer.stream = song
 	$AudioStreamPlayer.play()
+	Music.bird_song = true
 	get_tree().call_group("kittens", "listen")
 
 
 func _on_AudioStreamPlayer_finished():
-	if state == State.SINGING:
-		play_song_file()
-	else:
-		state = State.IDLE
-		update_sprite()
-		get_tree().call_group("kittens", "walk")
+	state = State.IDLE
+	Music.bird_song = false
+	update_sprite()
+	get_tree().call_group("kittens", "walk")
+	$CooldownTimer.start()
 
 
 func _on_CooldownTimer_timeout():
 	can_sing = true
 	state = State.READY
 	update_sprite()
-
-
-func _on_SongTimer_timeout():
-	state = State.IDLE
 
 
 func _on_Area2D_input_event(viewport, event, shape_idx):

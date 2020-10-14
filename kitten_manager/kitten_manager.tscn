@@ -7,10 +7,14 @@
 script = ExtResource( 1 )
 Kitten = ExtResource( 2 )
 
-[node name="Spawn" type="Position2D" parent="."]
+[node name="LeftSpawn" type="Position2D" parent="."]
 position = Vector2( -36.3525, 221.768 )
 
+[node name="RightSpawn" type="Position2D" parent="."]
+position = Vector2( 1068.15, 227.425 )
+
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.5
+one_shot = true
 autostart = true
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

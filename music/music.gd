@@ -1,4 +1,5 @@
 extends Node
+var bird_song = false
 
 
 func _ready():
