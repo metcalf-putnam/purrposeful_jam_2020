@@ -1,8 +1,61 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://fonts/Piazzolla-SemiBoldItalic-opsz=28.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://ui/main.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 28
+use_filter = true
+font_data = ExtResource( 1 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="NinePatchRect" type="ColorRect" parent="."]
+self_modulate = Color( 0.152941, 0.152941, 0.152941, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -225.0
+margin_top = -150.0
+margin_right = 225.0
+margin_bottom = 150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+margin_left = 24.0176
+margin_top = 27.5337
+margin_right = 422.018
+margin_bottom = 68.5337
+custom_fonts/font = SubResource( 1 )
+text = "The Good, the Bad, and the Kitties"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="NinePatchRect"]
+margin_left = 188.988
+margin_top = 223.006
+margin_right = 253.988
+margin_bottom = 270.006
+custom_fonts/font = SubResource( 1 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="NinePatchRect"]
+margin_left = 110.326
+margin_top = 77.7855
+margin_right = 324.326
+margin_bottom = 91.7855
+text = "(this ugly title screen will change)"
+[connection signal="pressed" from="NinePatchRect/Button" to="." method="_on_Button_pressed"]

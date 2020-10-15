@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="purrposeful_jam_2020"
-run/main_scene="res://root.tscn"
+run/main_scene="res://ui/main.tscn"
 config/icon="res://icon.png"
 
 [autoload]

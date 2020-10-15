@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Butch Catsidy [Menu Theme].ogg-0b28901a5c0ca6c9e3d1f6f2ccc90d4e.oggstr"
+
+[deps]
+
+source_file="res://music/Butch Catsidy [Menu Theme].ogg"
+dest_files=[ "res://.import/Butch Catsidy [Menu Theme].ogg-0b28901a5c0ca6c9e3d1f6f2ccc90d4e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

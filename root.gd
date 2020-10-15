@@ -4,7 +4,6 @@ export (PackedScene) var EndScreen
 
 
 func _ready():
-	Music.bird_song = false
 	EventHub.connect("restart_level", self, "_on_restart_level")
 	get_tree().paused = false
 	Music.start()
@@ -12,6 +11,7 @@ func _ready():
 
 func _on_TimeMeter_time_out():
 	get_tree().paused = true
+	Music.bird_song = false
 	Music.stop()
 	$AnimationPlayer.play("fade_to_black")
 	var end_screen = EndScreen.instance()
@@ -21,4 +21,3 @@ func _on_TimeMeter_time_out():
 
 func _on_restart_level():
 	get_tree().reload_current_scene()
-	
