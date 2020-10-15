@@ -93,6 +93,7 @@ tracks/1/keys = {
 }
 
 [node name="Bird" type="Node2D"]
+z_index = 1
 script = ExtResource( 2 )
 
 [node name="Area2D" type="Area2D" parent="."]
