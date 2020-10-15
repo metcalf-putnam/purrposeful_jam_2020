@@ -6,10 +6,10 @@ var rng = RandomNumberGenerator.new()
 var can_sing = false
 var selected_modulate = Color(0.4, 0.68, 0.19)
 var normal_modulate = Color(1, 1, 1)
-var mouse_in_range = false
 
 
 func _ready():
+	Global.mouse_on_bird = false
 	rng.randomize()
 	$CooldownTimer.start()
 
@@ -40,17 +40,18 @@ func _on_CooldownTimer_timeout():
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed and can_sing:
+			print("bird sing")
 			get_tree().set_input_as_handled()
 			sing()
 
 
 func _on_Area2D_mouse_entered():
-	mouse_in_range = true
+	Global.mouse_on_bird = true
 	update_sprite()
 
 
 func _on_Area2D_mouse_exited():
-	mouse_in_range = false
+	Global.mouse_on_bird = false
 	update_sprite()
 		
 
@@ -61,7 +62,7 @@ func update_sprite():
 			modulate = normal_modulate
 			$Area2D/Sprite.visible = false
 		State.READY:
-			if mouse_in_range:
+			if Global.mouse_on_bird:
 				modulate = selected_modulate
 				$Area2D/Sprite.visible = false
 			else:

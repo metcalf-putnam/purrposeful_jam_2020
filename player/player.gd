@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
-		if event.pressed:
+		if event.pressed and !Global.mouse_on_bird:
 			$Lasso.shoot()
 
 

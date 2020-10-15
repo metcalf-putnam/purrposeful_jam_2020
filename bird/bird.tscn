@@ -99,15 +99,13 @@ script = ExtResource( 2 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Area2D"]
-visible = false
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( -8.07088, 15.5414 )
+modulate = Color( 0.27451, 0.14902, 0.14902, 0.694118 )
+position = Vector2( -2.7162, -5.8222 )
 scale = Vector2( 0.85, 0.85 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2( -7.55099, 14.6301 )
+position = Vector2( -3.14127, -5.84363 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
