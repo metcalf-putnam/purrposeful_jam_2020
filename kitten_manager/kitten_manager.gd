@@ -1,15 +1,24 @@
 extends Node2D
-var rng = RandomNumberGenerator.new()
+
 export (PackedScene) var Kitten
 export (PackedScene) var Puppy
-export var right_walking = true
+
+# spawn time and location vars
 var random_limit = 135
-var meows = []
 var min_time = 1.5
 var max_time = 3.5
+var min_speed = 40
+var max_speed = 60
+
+# cat-related vars
+var meows = []
+
+# puppy-related vars
 var time_spent = 0
 var puppy_index = 0
 var puppy_array = [2, 22, 42, 55]
+
+var rng = RandomNumberGenerator.new()
 
 
 func _ready():
@@ -47,14 +56,18 @@ func spawn_kitten(kitty_bool):
 		kitten.init_meow(meows[rng.randi_range(0, len(meows) - 1)])
 	else:
 		kitten = Puppy.instance()
+		
+	add_child(kitten)
 	if right_bool:
-		$RightSpawn.add_child(kitten)
+		kitten.position = $RightSpawn.position
 		kitten.walk(Vector2(-1, 0))
 		kitten.scale.x = -1
 	else:
-		$LeftSpawn.add_child(kitten)
+		kitten.position = $LeftSpawn.position
 		kitten.walk(Vector2(1, 0))
+
 	kitten.position += Vector2(0, rng.randf_range(-random_limit, random_limit))
+	kitten.init_speed(rng.randf_range(min_speed, max_speed))
 
 func get_random_kitten():
 	# TODO: when get different kitten types, pick one according to probability distribution

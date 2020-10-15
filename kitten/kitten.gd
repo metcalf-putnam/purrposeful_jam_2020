@@ -3,11 +3,10 @@ var entered = false
 var caught = false
 var capture_complete = false
 var direction
-var speed = 50
+var speed = 50.0
 enum State {WALKING, LISTENING, IDLE}
 var state = State.IDLE
 var meows = []
-var rng = RandomNumberGenerator.new()
 
 
 func _ready():
@@ -16,6 +15,10 @@ func _ready():
 
 func init_meow(meow : AudioStream):
 	$Enter.stream = meow
+
+
+func init_speed(speed_in : float):
+	speed = speed_in
 
 
 func _on_Kitten_body_entered(body):

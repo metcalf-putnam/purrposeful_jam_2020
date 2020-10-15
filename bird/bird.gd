@@ -37,7 +37,7 @@ func _on_CooldownTimer_timeout():
 	update_sprite()
 
 
-func _on_Area2D_input_event(viewport, event, shape_idx):
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed and can_sing:
 			get_tree().set_input_as_handled()
