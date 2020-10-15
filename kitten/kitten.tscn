@@ -126,7 +126,7 @@ collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -5.21328, 25.1938 )
+position = Vector2( -2.21328, 25.1938 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
@@ -136,7 +136,7 @@ texture = ExtResource( 1 )
 offset = Vector2( 0, 1.45475 )
 vframes = 2
 hframes = 5
-frame = 5
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
