@@ -16,7 +16,7 @@ func init(score, goal):
 
 
 func _on_Restart_pressed_sound_finished():
-	EventHub.emit_signal("restart_level")
+	Transition.reload_current()
 
 
 func _on_Next_pressed_sound_finished():
