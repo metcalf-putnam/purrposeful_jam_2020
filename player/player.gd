@@ -27,7 +27,7 @@ func _on_Lasso_retracting():
 
 func _on_Lasso_throwing():
 	if direction == "left":
-		$AnimationPlayer.play("throw_left")
+		$AnimationPlayer.play("throw_right")
 	else:
 		$AnimationPlayer.play("throw_right")
 

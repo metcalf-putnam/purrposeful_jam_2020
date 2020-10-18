@@ -48,6 +48,7 @@ func get_lassoed():
 
 func spook():
 	$AnimationPlayer.play("spook")
+	$Frightened.play()
 
 
 func be_boxed():
