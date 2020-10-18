@@ -1,5 +1,12 @@
 extends Node
 var bird_song = false
+var main_db
+var menu_db
+
+
+func _ready():
+	main_db = $MainLoop.volume_db
+	menu_db = $MenuLoop.volume_db
 
 
 func start(type = "level"):

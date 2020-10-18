@@ -5,7 +5,6 @@
 [ext_resource path="res://music/Butch Catsidy [Menu Theme].ogg" type="AudioStream" id=3]
 
 [node name="Node" type="Node"]
-pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="MainLoop" type="AudioStreamPlayer" parent="."]

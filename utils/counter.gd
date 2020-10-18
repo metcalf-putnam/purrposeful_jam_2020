@@ -26,7 +26,8 @@ func _on_increment_kittens():
 
 
 func _on_decrement_kittens():
-	kitten_count -= 1
+	if kitten_count:
+		kitten_count -= 1
 	update_label()
 
 

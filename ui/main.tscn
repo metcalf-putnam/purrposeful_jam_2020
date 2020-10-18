@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://fonts/Piazzolla-SemiBoldItalic-opsz=28.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ui/main.gd" type="Script" id=2]
 [ext_resource path="res://environment/background.png" type="Texture" id=3]
+[ext_resource path="res://ui/button.tscn" type="PackedScene" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 28
@@ -15,6 +16,7 @@ script = ExtResource( 2 )
 [node name="TextureRect" type="TextureRect" parent="."]
 margin_right = 1024.0
 margin_bottom = 600.0
+mouse_filter = 2
 texture = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -31,6 +33,7 @@ margin_left = 287.0
 margin_top = 150.0
 margin_right = 737.0
 margin_bottom = 450.0
+mouse_filter = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -46,21 +49,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="NinePatchRect"]
-margin_left = 188.988
-margin_top = 223.006
-margin_right = 253.988
-margin_bottom = 270.006
-custom_fonts/font = SubResource( 1 )
-text = "Play"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Label2" type="Label" parent="NinePatchRect"]
 margin_left = 110.326
 margin_top = 77.7855
 margin_right = 324.326
 margin_bottom = 91.7855
-text = "(this ugly title screen will change)"
+text = "(this ugly title screen will definitely  change)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" parent="NinePatchRect" instance=ExtResource( 4 )]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.5
+margin_top = 64.5
+margin_right = 32.5
+margin_bottom = 111.5
+text = "Play"
 [connection signal="pressed" from="NinePatchRect/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed_sound_finished" from="NinePatchRect/Button" to="." method="_on_Button_pressed_sound_finished"]

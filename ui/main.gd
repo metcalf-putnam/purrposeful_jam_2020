@@ -6,4 +6,8 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene("res://root.tscn")
+	Music.stop()
+
+
+func _on_Button_pressed_sound_finished():
+	Transition.set_and_play_new_scene("res://root.tscn")

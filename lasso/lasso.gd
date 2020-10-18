@@ -4,7 +4,7 @@ onready var rope = $Rope		# A slightly easier reference to the links
 var direction := Vector2(0,0)	# The direction in which the chain was shot
 var tip := Vector2(0,0)			
 var buffer_length := 5
-var spinning_offset = 125
+var spinning_offset = 50
 export var rotation_speed = PI*5/4
 
 const SPEED = 14	# The speed with which the lasso moves

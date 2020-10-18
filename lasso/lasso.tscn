@@ -46,7 +46,7 @@ texture = ExtResource( 1 )
 centered = false
 offset = Vector2( -7.951, 1 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 50, 252 )
+region_rect = Rect2( 0, 0, 50, 150 )
 
 [node name="Throw" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -67,12 +67,11 @@ position = Vector2( 0, 0.5 )
 rotation = 3.14159
 scale = Vector2( 0.25, 0.25 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
-offset = Vector2( 0, 150 )
+offset = Vector2( 0, 155 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tip"]
-position = Vector2( -4.17629, -4.45481 )
+position = Vector2( -4.17629, -33.7149 )
 shape = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Tip/CollisionShape2D"]
