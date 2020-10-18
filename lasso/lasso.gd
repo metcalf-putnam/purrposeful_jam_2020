@@ -15,12 +15,18 @@ var state = State.INACTIVE
 
 var lassoed_kitten 
 var viewport
+var screen_direction = "center"
+
 
 signal kitten_detained
+signal retracting
+signal throwing
+signal spinning
+signal lasso_direction_changed
 
 
 func _ready():
-	state = State.SPINNING
+	spin()
 	viewport = get_viewport_rect().size
 	EventHub.connect("kitten_capture_complete", self, "_on_kitten_capture_complete")
 
@@ -28,10 +34,10 @@ func _ready():
 # shoot() shoots the chain in a given direction
 func shoot() -> void:
 	if state != State.SPINNING:
-		return	
-	
+		return
 	if rotation_degrees < 182 or rotation_degrees > 358:
 		return
+	emit_signal("throwing")
 	$Throw.play()
 	$Tip/Loop.visible = true
 	state = State.FLYING
@@ -40,6 +46,7 @@ func shoot() -> void:
 
 func spin():
 	state = State.SPINNING
+	emit_signal("spinning")
 	$Tip/Loop.visible = true
 
 
@@ -65,6 +72,7 @@ func _process(delta: float) -> void:
 		State.FLYING:
 			if !is_in_bounds():
 				state = State.RETRACTING
+				emit_signal("retracting")
 				$Miss.play()
 		State.RETRACTING:
 			tip_loc = to_local(tip)
@@ -79,6 +87,7 @@ func _process(delta: float) -> void:
 			var angle_buffer = 2
 			if rotation_degrees >= 180 - angle_buffer and rotation_degrees < 180 + angle_buffer:
 				$Swing.play()
+			get_direction()
 	
 	# Draw the rope connected to the loop
 	self.visible = true
@@ -92,7 +101,6 @@ func _process(delta: float) -> void:
 
 func _physics_process(_delta: float) -> void:
 	#$Tip.global_position = tip	# The player might have moved and thus updated the position of the tip -> reset it
-	
 	match state:
 		State.SPINNING:
 			$Tip.position.x = spinning_offset
@@ -108,6 +116,7 @@ func _physics_process(_delta: float) -> void:
 
 func _on_kitten_capture_complete():
 	state = State.RETRACTING
+	emit_signal("retracting")
 	$Pull.play()
 
 
@@ -123,3 +132,20 @@ func _on_Tip_kitten_detected(kitten):
 	lassoed_kitten = kitten
 	state = State.HOOKED
 	$Tip/Loop.visible = false
+
+
+func get_direction():
+	var new_direction
+	if rotation_degrees >= 45 and rotation_degrees < 135:
+		new_direction = "center"
+	elif rotation_degrees >= 135 and rotation_degrees < 225:
+		new_direction = "left"
+	elif rotation_degrees >= 225 and rotation_degrees < 315:
+		new_direction = "center"
+	else:
+		new_direction = "right"
+	
+	if new_direction != screen_direction:
+		emit_signal("lasso_direction_changed", new_direction)
+		
+	screen_direction = new_direction

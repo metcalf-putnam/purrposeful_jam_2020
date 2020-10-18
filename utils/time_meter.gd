@@ -1,10 +1,11 @@
 extends ProgressBar
-export var max_time : int
+var max_time : int
 var time 
 signal time_out
 
 
 func _ready():
+	max_time = Global.level_data[Global.level]["time_limit"]
 	time = max_time
 	max_value = time
 

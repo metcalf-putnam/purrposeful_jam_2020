@@ -1,6 +1,6 @@
 extends Node2D
 export (PackedScene) var EndScreen
-
+var end_screen = false
 
 
 func _ready():
@@ -10,6 +10,13 @@ func _ready():
 
 
 func _on_TimeMeter_time_out():
+	if end_screen:
+		return
+	end_level()
+
+
+func end_level():
+	end_screen = true
 	get_tree().paused = true
 	Music.bird_song = false
 	Music.stop()
@@ -21,3 +28,7 @@ func _on_TimeMeter_time_out():
 
 func _on_restart_level():
 	get_tree().reload_current_scene()
+
+
+func _on_Count_goal_achieved():
+	end_level()

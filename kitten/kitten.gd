@@ -1,4 +1,6 @@
 extends Area2D
+class_name Kitten
+
 var entered = false
 var caught = false
 var capture_complete = false
@@ -7,6 +9,7 @@ var speed = 50.0
 enum State {WALKING, LISTENING, IDLE}
 var state = State.IDLE
 var meows = []
+
 
 
 func _ready():
@@ -43,6 +46,15 @@ func get_lassoed():
 	$AnimationPlayer.play("caught")
 
 
+func spook():
+	$AnimationPlayer.play("spook")
+
+
+func be_boxed():
+	visible = true
+	$AnimationPlayer.play("appear")
+
+
 func _on_VisibilityNotifier2D_screen_exited():
 	if caught or !entered:
 		return
@@ -56,23 +68,10 @@ func _on_VisibilityNotifier2D_screen_entered():
 		listen()
 
 
-func _on_Mew_finished():
-	if capture_complete:
-		queue_free()
-
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	if anim_name == "caught":
-		EventHub.emit_signal("kitten_capture_complete")
-
-
 func be_detained():
 	capture_complete = true
-	# Makes invisible if capture mew still playing
-	visible = false  # TODO: reparent kitten so is bouncing around main character
-	if $Caught.is_playing():
-		return
-	queue_free()
+	visible = false
+	$AnimationPlayer.play("disappear")
 
 
 func _process(delta):
@@ -89,3 +88,18 @@ func listen():
 	state = State.LISTENING
 	set_process(false)
 	$AnimationPlayer.play("idle")
+
+
+func on_spook_end():
+	queue_free()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if anim_name == "caught":
+		EventHub.emit_signal("kitten_capture_complete")
+	if anim_name == "disappear":
+		EventHub.emit_signal("kitten_ready_for_box", self)
+	if anim_name == "appear":
+		$AnimationPlayer.play("box_idle")
+		if !is_in_group("puppies"):
+			EventHub.emit_signal("increment_kittens")

@@ -18,7 +18,7 @@ func sing():
 	can_sing = false
 	state = State.SINGING
 	update_sprite()
-	$AudioStreamPlayer.play()
+	$Song.play()
 	Music.bird_song = true
 	get_tree().call_group("kittens", "listen")
 
@@ -33,6 +33,7 @@ func _on_AudioStreamPlayer_finished():
 
 func _on_CooldownTimer_timeout():
 	can_sing = true
+	$Activated.play()
 	state = State.READY
 	update_sprite()
 
@@ -40,7 +41,6 @@ func _on_CooldownTimer_timeout():
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton:
 		if event.pressed and can_sing:
-			print("bird sing")
 			get_tree().set_input_as_handled()
 			sing()
 
