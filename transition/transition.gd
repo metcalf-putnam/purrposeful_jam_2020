@@ -25,7 +25,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 
 func fade_out():
-	print("fading!")
 	$AnimationPlayer.play("fade_to_black")
 	# TODO: music as well
 
@@ -37,9 +36,7 @@ func fade_in():
 
 func change_scene():
 	if new_scene == "current":
-		print("reloading current")
 		get_tree().reload_current_scene()
 	else:
-		print("new scene!")
 		get_tree().change_scene(new_scene)
 	fade_in()
