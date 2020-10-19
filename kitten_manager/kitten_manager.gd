@@ -83,9 +83,7 @@ func spawn_kitten(kitty_bool):
 
 
 func get_random_kitten():
-	print("kitten prob density: ", kitten_prob_density)
 	var prob = rng.randf_range(0, 1.0)
-	print("prob: ", prob)
 	if !kitten_prob_density:
 		return OrangeKitten.instance()
 		

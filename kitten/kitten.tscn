@@ -62,7 +62,7 @@ tracks/3/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=10]
 resource_name = "box_idle"
 length = 0.8
 loop = true
@@ -103,7 +103,7 @@ tracks/2/keys = {
 "values": [ 9 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=11]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:scale")
@@ -130,7 +130,7 @@ tracks/1/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=12]
 length = 0.1
 step = 0.05
 tracks/0/type = "value"
@@ -158,7 +158,7 @@ tracks/1/keys = {
 "values": [ 5, 9, 7 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=13]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -210,7 +210,7 @@ tracks/3/keys = {
 "values": [ 47 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=14]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -226,7 +226,7 @@ tracks/0/keys = {
 "values": [ 5 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=15]
 length = 0.9
 step = 0.05
 tracks/0/type = "value"
@@ -379,12 +379,12 @@ frame = 6
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
 anims/appear = SubResource( 2 )
-anims/box_idle = SubResource( 3 )
-anims/caught = SubResource( 4 )
-anims/disappear = SubResource( 5 )
-anims/idle = SubResource( 6 )
-anims/in_lasso = SubResource( 7 )
-anims/spook = SubResource( 8 )
+anims/box_idle = SubResource( 10 )
+anims/caught = SubResource( 11 )
+anims/disappear = SubResource( 12 )
+anims/idle = SubResource( 13 )
+anims/in_lasso = SubResource( 14 )
+anims/spook = SubResource( 15 )
 anims/walk = SubResource( 9 )
 
 [node name="Caught" type="AudioStreamPlayer2D" parent="."]

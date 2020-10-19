@@ -1,10 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://ui/Purisa.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://ui/end_screen.gd" type="Script" id=2]
 [ext_resource path="res://utils/Defeat.wav" type="AudioStream" id=3]
 [ext_resource path="res://utils/Victory.wav" type="AudioStream" id=4]
 [ext_resource path="res://ui/button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/9pr.png" type="Texture" id=6]
+[ext_resource path="res://ui/star.png" type="Texture" id=7]
+[ext_resource path="res://ui/Pop_1.wav" type="AudioStream" id=8]
+[ext_resource path="res://close_scene/purr.wav" type="AudioStream" id=9]
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 32
@@ -12,11 +22,236 @@ use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 1 )
 
+[sub_resource type="Animation" id=8]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Stars:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Stars/Star1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Stars/Star2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Stars/Star3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "one_star"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Stars:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Pop")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Stars/Star1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "three_star"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Stars:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Stars/Star1:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("Pop")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.3,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.3,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.3,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0, 0.3, 0.7 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Stars/Star2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Stars/Star3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.7 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "two_star"
+length = 0.4
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Pop")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [ {
+"end_offset": 0.3,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.3,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0, 0.3 )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Stars/Star2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Stars/Star1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Stars:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
 [node name="EndScreen" type="CanvasLayer"]
 pause_mode = 2
 script = ExtResource( 2 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="NinePatchRect" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -26,7 +261,11 @@ margin_top = -150.0
 margin_right = 250.0
 margin_bottom = 150.0
 rect_min_size = Vector2( 500, 300 )
-color = Color( 0.247059, 0.247059, 0.247059, 1 )
+texture = ExtResource( 6 )
+patch_margin_left = 75
+patch_margin_top = 75
+patch_margin_right = 75
+patch_margin_bottom = 100
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -37,10 +276,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -73.5
-margin_top = -54.5
+margin_top = -50.5
 margin_right = 69.5
-margin_bottom = -1.5
-custom_fonts/font = SubResource( 6 )
+margin_bottom = 2.5
+custom_fonts/font = SubResource( 7 )
+custom_colors/font_color = Color( 0.607843, 0.305882, 0.403922, 1 )
 text = "Success!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -52,10 +292,11 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -151.835
-margin_top = -142.167
+margin_top = -122.167
 margin_right = 148.165
-margin_bottom = -89.1674
+margin_bottom = -69.1674
 custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.607843, 0.305882, 0.403922, 1 )
 text = "Level 1 of 5"
 align = 1
 __meta__ = {
@@ -68,9 +309,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -190.55
-margin_top = 64.6456
+margin_top = 40.6456
 margin_right = 1341.45
-margin_bottom = 328.646
+margin_bottom = 304.646
 rect_scale = Vector2( 0.25, 0.25 )
 custom_constants/separation = 500
 alignment = 1
@@ -99,5 +340,38 @@ stream = ExtResource( 4 )
 
 [node name="Failure" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 8 )
+anims/one_star = SubResource( 9 )
+anims/three_star = SubResource( 10 )
+anims/two_star = SubResource( 11 )
+
+[node name="Stars" type="Node2D" parent="."]
+position = Vector2( 398.22, 271.214 )
+
+[node name="Star1" type="Sprite" parent="Stars"]
+position = Vector2( 33.371, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 7 )
+
+[node name="Star2" type="Sprite" parent="Stars"]
+position = Vector2( 116.131, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 7 )
+
+[node name="Star3" type="Sprite" parent="Stars"]
+position = Vector2( 201.176, 0 )
+scale = Vector2( 0.15, 0.15 )
+texture = ExtResource( 7 )
+
+[node name="Pop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="Purr" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
 [connection signal="pressed" from="ColorRect/HBoxContainer/Restart" to="." method="_on_Restart_pressed"]
 [connection signal="pressed" from="ColorRect/HBoxContainer/Next" to="." method="_on_Next_pressed"]
+[connection signal="finished" from="Success" to="." method="_on_Success_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

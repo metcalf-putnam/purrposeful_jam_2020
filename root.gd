@@ -17,13 +17,14 @@ func _on_TimeMeter_time_out():
 
 
 func end_level():
+	print("time left: ", $CanvasLayer/TimeLabel/TimeMeter.time)
 	end_screen_open = true
 	get_tree().paused = true
 	Music.bird_song = false
 	Music.stop()
 	$AnimationPlayer.play("fade_to_black")
 	var end_screen = EndScreen.instance()
-	end_screen.init($CanvasLayer/Count.kitten_count, $CanvasLayer/Count.goal)
+	end_screen.init($CanvasLayer/Count.kitten_count, $CanvasLayer/Count.goal, $CanvasLayer/TimeLabel/TimeMeter.time)
 	add_child(end_screen)
 
 

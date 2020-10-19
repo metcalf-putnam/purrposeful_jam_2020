@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/VoiceOver_Intro.wav-94390a658b59fda98892fa8e5fcf1778.sample"
+
+[deps]
+
+source_file="res://openscene/VoiceOver_Intro.wav"
+dest_files=[ "res://.import/VoiceOver_Intro.wav-94390a658b59fda98892fa8e5fcf1778.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

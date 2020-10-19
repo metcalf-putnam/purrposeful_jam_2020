@@ -9,4 +9,4 @@ func _ready():
 
 func _on_Button_pressed():
 	Music.stop()
-	Transition.set_and_play_new_scene("res://root.tscn")
+	Transition.set_and_play_new_scene("res://openscene/Node2D.tscn")

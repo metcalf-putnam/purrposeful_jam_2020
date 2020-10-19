@@ -13,6 +13,7 @@ func change_text(text_in):
 
 func _ready():
 	$Label.text = text
+	$Label.set("custom_colors/font_color", normal_color)
 
 
 func _on_Button_mouse_entered():

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Outro-KatherineTole.wav-fc06ee5fa74ad70582104077cbf902ee.sample"
+
+[deps]
+
+source_file="res://close_scene/Outro-KatherineTole.wav"
+dest_files=[ "res://.import/Outro-KatherineTole.wav-fc06ee5fa74ad70582104077cbf902ee.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

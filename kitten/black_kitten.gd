@@ -6,6 +6,6 @@ func _ready():
 	$AnimationPlayer.playback_speed = .5
 
 
-func _process(delta):
+func _process(_delta):
 	speed = speed * speed_multiplier
 	$AnimationPlayer.playback_speed = $AnimationPlayer.playback_speed * speed_multiplier
