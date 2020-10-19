@@ -4,7 +4,7 @@ onready var rope = $Rope		# A slightly easier reference to the links
 var direction := Vector2(0,0)	# The direction in which the chain was shot
 var tip := Vector2(0,0)			
 var buffer_length := 5
-var spinning_offset = 50
+var spinning_offset = 30
 export var rotation_speed = PI*5/4
 
 const SPEED = 14	# The speed with which the lasso moves
@@ -29,14 +29,15 @@ func _ready():
 	spin()
 	viewport = get_viewport_rect().size
 	EventHub.connect("kitten_capture_complete", self, "_on_kitten_capture_complete")
-
+	var data = Global.level_data[Global.level]
+	rotation_speed = data["lasso_speed"]
 
 # shoot() shoots the chain in a given direction
 func shoot() -> void:
 	if state != State.SPINNING:
 		return
-	if rotation_degrees < 182 or rotation_degrees > 358:
-		return
+#	if rotation_degrees < 182 or rotation_degrees > 358:
+#		return
 	emit_signal("throwing")
 	$Throw.play()
 	$Tip/Loop.visible = true

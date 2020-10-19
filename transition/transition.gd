@@ -26,12 +26,12 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func fade_out():
 	$AnimationPlayer.play("fade_to_black")
-	# TODO: music as well
+	# TODO: music as well?
 
 
 func fade_in():
 	$AnimationPlayer.play("fade_in")
-	# TODO: music change as well
+	# TODO: music change as well?
 	
 
 func change_scene():

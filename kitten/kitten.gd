@@ -21,7 +21,7 @@ func init_meow(meow : AudioStream):
 
 
 func init_speed(speed_in : float):
-	speed = speed_in
+	speed = speed_in * speed
 
 
 func _on_Kitten_body_entered(body):
@@ -41,6 +41,7 @@ func walk(direction_in := direction):
 
 
 func get_lassoed():
+	$AnimationPlayer.playback_speed = 1
 	caught = true
 	$Caught.play()
 	$AnimationPlayer.play("caught")

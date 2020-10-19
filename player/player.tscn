@@ -340,7 +340,7 @@ scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 4 )
 vframes = 10
 hframes = 6
-frame = 19
+frame = 23
 
 [node name="LassoHolder" type="Node2D" parent="Body"]
 position = Vector2( -241.172, -60.6753 )

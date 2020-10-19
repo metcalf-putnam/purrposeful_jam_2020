@@ -1,17 +1,20 @@
 extends Node2D
 
-export (PackedScene) var Kitten
+export (PackedScene) var OrangeKitten
+export (PackedScene) var BlackKitten
+export (PackedScene) var SocksKitten
 export (PackedScene) var Puppy
 
 # spawn time and location vars
 var random_limit = 135
 var min_time = 1.5
 var max_time = 3.5
-var min_speed = 40
-var max_speed = 60
+var min_speed = .9
+var max_speed = 1.2
 
 # cat-related vars
 var meows = []
+var kitten_prob_density = []
 
 # puppy-related vars
 var time_spent = 0
@@ -23,8 +26,17 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	load_meows()
+	load_level_data()
 	spawn_kitten(true)
 	rng.randomize()
+
+
+func load_level_data():
+	var data = Global.level_data[Global.level]
+	puppy_array = data["dog_array"]
+	min_time = data["min_time"]
+	max_time = data["max_time"]
+	kitten_prob_density = data["kitten_prob_density"]
 
 
 func load_meows():
@@ -69,6 +81,20 @@ func spawn_kitten(kitty_bool):
 	kitten.position += Vector2(0, rng.randf_range(-random_limit, random_limit))
 	kitten.init_speed(rng.randf_range(min_speed, max_speed))
 
+
 func get_random_kitten():
-	# TODO: when get different kitten types, pick one according to probability distribution
-	return Kitten.instance()
+	print("kitten prob density: ", kitten_prob_density)
+	var prob = rng.randf_range(0, 1.0)
+	print("prob: ", prob)
+	if !kitten_prob_density:
+		return OrangeKitten.instance()
+		
+	if kitten_prob_density.size() >= 1 and prob <= kitten_prob_density[0]:
+		return OrangeKitten.instance()
+	if kitten_prob_density.size() >= 2 and prob <= kitten_prob_density[1]: 
+		return SocksKitten.instance()
+	if kitten_prob_density.size() >= 3 and prob <= kitten_prob_density[2]:
+		return BlackKitten.instance()
+	
+	return OrangeKitten.instance()
+	

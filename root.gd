@@ -4,6 +4,7 @@ var end_screen_open = false
 
 
 func _ready():
+	$CanvasLayer/LevelLabel.text = "Level " + str(Global.level)
 	EventHub.connect("restart_level", self, "_on_restart_level")
 	get_tree().paused = false
 	Music.start()
